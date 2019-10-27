@@ -2,7 +2,7 @@
 
 <?php
 $type = "Blue PET bottle - not clean";
-echo "Blue PET bottle - not clean";
+
 require_once __DIR__ . '/vendor/autoload.php';
 include 'vendor/autoload.php'; 
 use Phpml\Regression\LeastSquares; 
@@ -55,50 +55,6 @@ $regression = new LeastSquares();
 $regression->train($samples, $targets3);
 
 $num = 11;
-for($i=0; $i < 12 ; $i++){
-  
-  while($num > 13){
-    $num -=13;
-  }
-  if($num == 1) echo "January\t";
-  if($num == 2) echo "Feburari\t";
-  if($num == 3) echo "Maret\t";
-  if($num == 4) echo "April\t";
-  if($num == 5) echo "Maret\t";
-  if($num == 6) echo "Mei\t";
-  if($num == 7) echo "Juni\t";
-  if($num == 8) echo "Juli\t";
-  if($num == 9) echo "Agustus\t";
-  if($num == 10) echo "September\t";
-  if($num == 11) echo "Oktober\t";
-  if($num == 12) echo "November\t";
-  if($num == 13) echo "Desember\t";
-  echo $targets3[$i];
-  echo "<br/>";
-  $num++;
-}
-for( $i =1; $i < 4; $i++){
-  
-  while($num > 12){
-    $num -=12;
-  }
-  if($num == 1) echo "January\t";
-  if($num == 2) echo "Feburari\t";
-  if($num == 3) echo "Maret\t";
-  if($num == 4) echo "April\t";
-  if($num == 5) echo "Maret\t";
-  if($num == 6) echo "Mei\t";
-  if($num == 7) echo "Juni\t";
-  if($num == 8) echo "Juli\t";
-  if($num == 9) echo "Agustus\t";
-  if($num == 10) echo "September\t";
-  if($num == 11) echo "Oktober\t";
-  if($num == 12) echo "November\t";  
-  if($num == 13) echo "Desember\t";
-  echo $regression->predict([$i+19]);
-  echo "<br/>";
-  $num++;
-}
 
 ?>
 <?php
@@ -151,5 +107,61 @@ chart.render();
 <body>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<?php
+
+echo "<br/>Blue PET bottle - not clean";
+echo "<br/>";
+$tahun = 2018;
+for($i=0; $i < 12 ; $i++){
+  
+  while($num > 13){
+    $num -=13;
+    $tahun++;
+  }
+  if($num == 1) echo "January  ".$tahun."\t =";
+  if($num == 2) echo "Feburari  ".$tahun."\t =";
+  if($num == 3) echo "Maret  ".$tahun."\t =";
+  if($num == 4) echo "April  ".$tahun."\t =";
+  if($num == 5) echo "Maret  ".$tahun."\t =";
+  if($num == 6) echo "Mei  ".$tahun."\t =";
+  if($num == 7) echo "Juni  ".$tahun."\t =";
+  if($num == 8) echo "Juli  ".$tahun."\t =";
+  if($num == 9) echo "Agustus  ".$tahun."\t =";
+  if($num == 10) echo "September  ".$tahun."\t =";
+  if($num == 11) echo "Oktober  ".$tahun."\t =";
+  if($num == 12) echo "November  ".$tahun."\t =";
+  if($num == 13) echo "Desember  ".$tahun."\t =";
+  echo " Rp ". $targets3[$i];
+  echo "<br/>";
+  $num++;
+}
+
+echo "<br/>prediksi 3 bulan ke depan<br/>";
+
+for( $i =1; $i < 4; $i++){
+  
+  while($num > 12){
+    $num -=12;
+    $tahun++;
+  }
+  if($num == 1) echo "January  ".$tahun."\t =";;
+  if($num == 2) echo "Feburari ".$tahun."\t =";;
+  if($num == 3) echo "Maret ".$tahun."\t =";;
+  if($num == 4) echo "April ".$tahun."\t =";;
+  if($num == 5) echo "Maret ".$tahun."\t =";;
+  if($num == 6) echo "Mei ".$tahun."\t =";;
+  if($num == 7) echo "Juni ".$tahun."\t =";;
+  if($num == 8) echo "Juli ".$tahun."\t =";;
+  if($num == 9) echo "Agustus ".$tahun."\t =";;
+  if($num == 10) echo "September ".$tahun."\t =";;
+  if($num == 11) echo "Oktober ".$tahun."\t =";;
+  if($num == 12) echo "November ".$tahun."\t =";;  
+  if($num == 13) echo "Desember ".$tahun."\t =";;
+  echo "Rp ". $regression->predict([$i+19]);
+  echo "<br/>";
+  $num++;
+}
+?>
 </body>
 </html>
