@@ -1,2 +1,0 @@
-# hackathon
-Waste Data Hackathon
